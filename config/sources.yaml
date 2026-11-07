@@ -1,0 +1,56 @@
+# Where jobs come from. Every source here allows automated access.
+# LinkedIn, Indeed, Glassdoor, and Handshake ban scraping, so they aren't used directly.
+# The Simplify lists and Adzuna cover most of the same postings.
+
+simplify:
+  # Community-maintained lists of tech internships and new-grad roles (github.com/SimplifyJobs)
+  lists: ["internships", "new_grad"]
+
+ats:
+  # Company careers pages. The slug is the name in the careers URL,
+  # e.g. boards.greenhouse.io/anduril -> anduril. A wrong slug is logged and skipped.
+  greenhouse:
+    - {slug: andurilindustries, name: Anduril}
+    - {slug: planetlabs, name: Planet}
+    - {slug: astranis, name: Astranis}
+    - {slug: spacex, name: SpaceX}
+    - {slug: databricks, name: Databricks}
+    - {slug: scaleai, name: Scale AI}
+    - {slug: anthropic, name: Anthropic}
+    - {slug: stripe, name: Stripe}
+    - {slug: figma, name: Figma}
+    - {slug: samsara, name: Samsara}
+    - {slug: cloudflare, name: Cloudflare}
+    - {slug: muon, name: Muon Space}
+  lever:
+    - {slug: palantir, name: Palantir}
+    - {slug: shieldai, name: Shield AI}
+  ashby:
+    - {slug: openai, name: OpenAI}
+    - {slug: ramp, name: Ramp}
+    - {slug: loft-orbital, name: Loft Orbital}
+
+usajobs:
+  # Needs USAJOBS_API_KEY and USAJOBS_EMAIL. Params: https://developer.usajobs.gov/api-reference/get-api-search
+  days: 30
+  queries:
+    - {Keyword: "computer science", LocationName: "San Francisco, California", Radius: 50}
+    - {Keyword: "information technology", LocationName: "San Francisco, California", Radius: 50}
+    - {Keyword: "data science", LocationName: "San Francisco, California", Radius: 50}
+    - {HiringPath: "student", Keyword: "computer"}
+    - {HiringPath: "student", Keyword: "data"}
+    - {Keyword: "satellite communications"}
+
+adzuna:
+  # Needs ADZUNA_APP_ID and ADZUNA_APP_KEY. Searches within distance_km of "where".
+  where: "San Francisco, CA"
+  distance_km: 60
+  days: 14
+  pages: 2
+  queries:
+    - {what: "software intern"}
+    - {what: "data intern"}
+    - {what: "IT support", part_time: 1}
+    - {what: "help desk", part_time: 1}
+    - {what: "student technology assistant"}
+    - {what: "computer science part time"}

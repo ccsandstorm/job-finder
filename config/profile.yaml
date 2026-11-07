@@ -1,0 +1,65 @@
+# What the job finder looks for. Edit freely; no code changes needed.
+# Keywords match whole words. A trailing * matches a prefix ("data scien*" -> science, scientist).
+
+name: Carl Sandstrom
+school: University of San Francisco, B.S. Computer Science, May 2028
+
+tracks:
+  # Internships for these terms go in the "Summer 2027" list
+  summer_terms: ["Summer 2027"]
+  # Internships for these terms count as school-year work you could do now
+  now_terms: ["Winter 2026", "Winter 2027", "Spring 2027", "Fall 2027"]
+
+locations:
+  primary: ["San Francisco", "SF"]
+  nearby: ["Bay Area", "Oakland", "Berkeley", "Emeryville", "San Mateo", "Redwood City", "Palo Alto",
+           "Menlo Park", "Mountain View", "Sunnyvale", "Santa Clara", "San Jose", "Cupertino",
+           "Foster City", "South San Francisco", "Burlingame", "San Bruno", "Fremont", "Hayward",
+           "Milpitas", "Pleasanton", "Livermore", "Walnut Creek", "Daly City", "San Carlos",
+           "Belmont", "Los Altos", "Moffett Field", "Alameda", "Richmond", "Concord", "Novato",
+           "San Rafael", "Petaluma"]
+  acceptable: ["California", "CA"]
+  remote_ok: true
+  # Remote roles limited to these places don't count as remote for you
+  non_us: ["Canada", "India", "UK", "United Kingdom", "London", "Europe", "EMEA", "Germany", "Ireland",
+           "Poland", "Singapore", "Japan", "China", "Australia", "Mexico", "Brazil", "Israel", "LATAM", "APAC"]
+
+# Target fields. The best match sets the role score; weight 1.0 is a perfect fit.
+roles:
+  software:
+    weight: 1.0
+    keywords: ["software", "swe", "backend", "back end", "full stack", "fullstack", "developer",
+               "programmer", "platform engineer*", "infrastructure engineer*", "devops", "site reliability"]
+  data:
+    weight: 1.0
+    keywords: ["data scien*", "data analy*", "data engineer*", "analytics", "business intelligence"]
+  ai:
+    weight: 1.0
+    keywords: ["machine learning", "ML", "AI", "artificial intelligence", "deep learning", "LLM*",
+               "computer vision", "NLP", "applied scien*"]
+  satellite:
+    weight: 1.0
+    keywords: ["satellite*", "satcom", "RF", "radio frequency", "ground station*", "spacecraft",
+               "space system*", "aerospace", "communications engineer*", "telecommunication*",
+               "signal processing", "GNSS", "avionics"]
+  it_support:
+    weight: 0.8
+    keywords: ["IT support", "help desk", "helpdesk", "technical support", "tech support",
+               "desktop support", "service desk", "systems administrat*", "network engineer*",
+               "network administrat*", "IT technician", "IT specialist", "information technology"]
+  general_tech:
+    weight: 0.6
+    keywords: ["engineer*", "technical", "technology", "computer science", "cybersecurity", "security"]
+
+skills: ["Python", "Java", "SQL", "C++", "C#", "JavaScript", "TypeScript", "pandas", "NumPy",
+         "scikit-learn", "PyTorch", "TensorFlow", "Linux", "Git", "networking", "TCP/IP", "VMware",
+         "Windows Server", "troubleshooting", "satellite", "RF", "data analysis", "statistics",
+         "machine learning", "AWS", "cloud", "REST", "APIs", "ggplot2", "Excel"]
+
+# Small boost when the posting mentions these (veteran and clearance friendly employers)
+bonus_keywords: ["veteran*", "military", "clearance", "secret", "DoD", "Department of Defense"]
+
+# Titles to drop entirely
+exclude_title: ["senior", "sr", "staff", "principal", "manager", "director", "head of", "lead",
+                "architect", "VP", "vice president", "chief", "PhD", "postdoc*", "MBA", "master's",
+                "sales", "account executive", "recruiter", "nurse", "driver"]
